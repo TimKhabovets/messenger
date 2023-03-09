@@ -1,7 +1,7 @@
 import axios from "axios";
 import urls from '../constants/urls';
 
-const BASE_URL = 'http://localhost:5000/api/user';
+const BASE_URL = 'https://messenger-seven-iota.vercel.app/api/user';
 
 export const auth = async (name) => {
   try {
