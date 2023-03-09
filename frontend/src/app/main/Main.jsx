@@ -44,7 +44,8 @@ function Main() {
     navigate(routes.AUTH);
   }
 
-  const readLetter = (id, status) => {
+  const openOrClose = (id, status, index) => {
+    read(id, status, index);
     const text = document.querySelector(`.text${id}`);
     if (text.classList.contains('close')) {
       text.classList.remove('close');
@@ -52,10 +53,14 @@ function Main() {
     else {
       text.classList.add('close');
     }
+  }
 
+  const read = (id, status, index) => {
     if (!status) {
-      readLetter();
+      letters[index].status = true;
+      readLetter(id);
     }
+     
   }
 
   return (
@@ -81,11 +86,11 @@ function Main() {
       </div>
 
       <div className="divider"> </div>
-      {letters.map((letter) => {
+      {letters.map((letter, index) => {
         const date = new Date(letter.date);
         return (
           <div className="phone_body">
-            <div className="chat" onClick={() => {readLetter(letter.id, letter.status)}}>
+            <div className="chat" onClick={() => {openOrClose(letter.id, letter.status, index)}}>
               <div className="chat_info">
                 <div className="contact_name">{letter.author} </div>
                 <div className="contact_msg">{letter.topic} </div>
