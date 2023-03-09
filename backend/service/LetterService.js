@@ -7,7 +7,7 @@ export const getAll = async (name) => {
     where: {
       recipient: name,
     }, 
-    order: [ ['item_count', 'DESC']],
+    order: [ ['id', 'DESC']],
   });
   for (let letter = 0; letter < letters.length; letter++) {
     let author = await User.findOne({
