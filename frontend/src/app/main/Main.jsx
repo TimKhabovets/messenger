@@ -45,15 +45,16 @@ function Main() {
   }
 
   const readLetter = (id, status) => {
-    if (!status) {
-      readLetter();
-    }
     const text = document.querySelector(`.text${id}`);
     if (text.classList.contains('close')) {
       text.classList.remove('close');
     }
     else {
       text.classList.add('close');
+    }
+
+    if (!status) {
+      readLetter();
     }
   }
 
