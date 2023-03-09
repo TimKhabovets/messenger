@@ -15,7 +15,6 @@ import { sentLetter } from '../../shared/apis/LetterApi';
 export default function Item({ open, setOpen }) {
   const { register, handleSubmit, reset, formState: { errors } } = useForm();
   const { name, setName } = useContext(GlobalContext);
-  const [text, setText] = useState();
 
   const handleClose = () => {
     setOpen(false);
@@ -99,9 +98,6 @@ export default function Item({ open, setOpen }) {
                 </form>             
             </DialogContentText>
           </DialogContent>
-          <DialogActions id={styles.dialogActions} > 
-            <Button onClick={handleClose}>Close</Button>
-          </DialogActions>
         </Grid>
       </Dialog>
     </Box>
