@@ -6,7 +6,8 @@ export const getAll = async (name) => {
   let letters = await Letter.findAll({
     where: {
       recipient: name,
-    }
+    }, 
+    order: [ ['item_count', 'DESC']],
   });
   for (let letter = 0; letter < letters.length; letter++) {
     let author = await User.findOne({

@@ -44,7 +44,10 @@ function Main() {
     navigate(routes.AUTH);
   }
 
-  const openOrCloseLetter = (id) => {
+  const readLetter = (id, status) => {
+    if (!status) {
+      readLetter();
+    }
     const text = document.querySelector(`.text${id}`);
     if (text.classList.contains('close')) {
       text.classList.remove('close');
@@ -81,7 +84,7 @@ function Main() {
         const date = new Date(letter.date);
         return (
           <div className="phone_body">
-            <div className="chat" onClick={() => {openOrCloseLetter(letter.id)}}>
+            <div className="chat" onClick={() => {readLetter(letter.id, letter.status)}}>
               <div className="chat_info">
                 <div className="contact_name">{letter.author} </div>
                 <div className="contact_msg">{letter.topic} </div>
