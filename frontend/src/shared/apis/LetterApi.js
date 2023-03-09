@@ -25,7 +25,7 @@ export const sentLetter = async (data) => {
 
 export const readLetter = async (id) => {
   try {
-    const response = await axios.post(BASE_URL + urls.READ + '/' + id);
+    const response = await axios.get(BASE_URL + urls.READ + '/' + id);
     return response;
   }
   catch (err) {
